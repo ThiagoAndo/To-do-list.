@@ -1,0 +1,26 @@
+<%- include("partials/header.ejs") %>
+
+<div class="block"></div>
+<div class="container">
+    <div class="print">
+              <p>Caution!</p>
+              <p>Got it!</p>
+        </div>
+         <div class="title">
+           <span>Work List</span>
+         </div>
+         <% if(locals.list2){%> <% for (const key in list2) { %>
+         <div class="item">
+              <input type="checkbox" id="<%=list2[key].tsk %>" />
+              <p class="<%= list2[key].tsk %>"><%=list2[key].tsk %></p>
+              <button  name="button">X</button>
+         </div>
+         <% } %> <% }%>
+            <form action="/submit2" method="post" name="work">
+               <input type="text" name="task" placeholder="New Item" autocomplete="off" class="bor"/>
+               <button type="submit" name="button" id="add">+</button>
+           </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
